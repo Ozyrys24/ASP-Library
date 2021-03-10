@@ -4,6 +4,11 @@
 	ViewData["Title"] = "List of Roles";
 }
 
+<div class="container-fluid">
+	<div class="row col-md-10" >
+		<a class="btn btn-primary ml-auto" asp-area="" asp-controller="Administration" asp-action="CreateRole">Create New Role</a>
+	</div>
+</div>
 <div class="row justify-content-md-center col-md-10">
 	@if (Model.Any())
 	{
@@ -22,7 +27,6 @@
 				</div>
 			</div>
 		}
-		<a class="btn btn-primary btn-lg btn-block m-2" asp-area="" asp-controller="Administration" asp-action="CreateRole">Create Role</a>
 	}
 	else
 	{
@@ -34,7 +38,6 @@
 				<h5 class="card-title">None at role created</h5>
 			</div>
 			<div class="card-footer text-muted">
-				<a class="btn btn-primary btn-lg btn-block" asp-area="" asp-controller="Administration" asp-action="CreateRole">Create Role</a>
 			</div>
 		</div>
 	}

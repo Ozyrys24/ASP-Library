@@ -32,8 +32,7 @@
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administration</a>
 									<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-										<a class="dropdown-item" asp-area="" asp-controller="Administration" asp-action="CreateRole">Create Role</a>
-										<a class="dropdown-item" asp-area="" asp-controller="Administration" asp-action="ListRoles">Roles List</a>
+										<a class="dropdown-item" asp-area="" asp-controller="Administration" asp-action="ListRoles">Roles</a>
 									</div>
 								</li>
 							}
@@ -55,7 +54,7 @@
 	<footer class="border-top footer text-muted">
 		<div class="container">
 				2021 - Biblioteka -
-			@if (User.Identity.IsAuthenticated)
+			@if (signInManager.IsSignedIn(User))
 			{
 				<a asp-area="" asp-controller="Books" asp-action="Index">Book List</a>
 			}

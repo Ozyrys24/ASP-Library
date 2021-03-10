@@ -2,13 +2,13 @@
 @inject SignInManager<IdentityUser> signInManager;
 
 @{
-	ViewData["Title"] = "Index";
+	ViewData["Title"] = "List of books";
 }
 
-<h1>List of books in Library</h1>
+<h1 class="text-center">List of books in library</h1>
 
 <p>
-	<a asp-action="Create">Create New</a>
+	<a asp-action="Create" class="btn btn-primary float-right m-5">Add New Book</a>
 </p>
 <table class="table">
 	<thead>
@@ -21,15 +21,6 @@
 			</th>
 			<th>
 				@Html.DisplayNameFor(model => model.Publishing)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.ISBN)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Year)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Quantity)
 			</th>
 			<th></th>
 		</tr>
@@ -48,20 +39,11 @@
 					@Html.DisplayFor(modelItem => item.Publishing)
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.ISBN)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Year)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Quantity)
-				</td>
-				<td>
-					<a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+					<a asp-action="Details" asp-route-id="@item.ID" class="btn btn-primary">Details</a>
 					@if (signInManager.IsSignedIn(User) && User.IsInRole("Administrator"))
 					{
-						<a asp-action="Edit" asp-route-id="@item.ID">Edit</a>
-						<a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+						<a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary">Edit</a>
+						<a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
 					}
 				</td>
 			</tr>
